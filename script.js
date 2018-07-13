@@ -31,7 +31,6 @@ $(document).ready(() => {
             }
         }
         // $("#generateButton").attr("disabled", true);
-        generateButton.remove();
         checkTostart();
     });
 
@@ -45,6 +44,7 @@ $(document).ready(() => {
         if (counter == 25 && gameStatus == false) {
             gameStatus = true;
             randomButton.classList.toggle("op-0");
+            generateButton.remove();
         }
     }
 

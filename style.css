@@ -14,6 +14,11 @@ div.buttonPanel{
     position: absolute;
     top: 5%;
     right: 5%;
+
+}
+
+.buttonPanel> button{
+    margin-left: 5px;
 }
 
 button{

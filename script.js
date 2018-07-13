@@ -28,6 +28,7 @@ $(document).ready(() => {
                 else{this.value = "";}
             }
         }
+        $("#generateButton").attr("disabled", true);
         checkTostart();
     });
 

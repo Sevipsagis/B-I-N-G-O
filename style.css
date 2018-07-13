@@ -29,7 +29,6 @@ td{
     width: 8vw;
     height: 8vw;
     background-color: black;
-    border: 2px white solid;
     color: aliceblue;
     text-align: center;
 }
@@ -39,4 +38,5 @@ td>input{
     height: 100%;
     text-align: center;
     font-size: 2em;
+    border: none;
 }

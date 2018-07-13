@@ -18,7 +18,6 @@ body{
 #gameBoard{
     width: 40vw;
     height: 40vw;
-    background-color: red;
 }
 
 tr{

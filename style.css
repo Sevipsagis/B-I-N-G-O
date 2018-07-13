@@ -65,7 +65,7 @@ td>input{
     color: #4ecca3;
 }
 
-td>input.selected{
+td>input[checked]{
     background-color: #4ecca3;
     color: #eeeeee;
 }

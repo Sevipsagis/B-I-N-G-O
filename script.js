@@ -1,7 +1,9 @@
 var numberArray = [];
 var gameStatus = false;
 for(let i=1; i<100; i++){numberArray.push(i);}
-console.log(numberArray);
+function restartGame(){
+    location.reload();
+}
 $(document).ready(() => {
     var inputBox = $(".inputBox");
     inputBox.on("click", function () {
@@ -10,13 +12,12 @@ $(document).ready(() => {
             if(numberArray[playerNumber-1] != null){
                 this.value = playerNumber;
                 numberArray[playerNumber-1] = null;
-                console.log(numberArray);
             }
             else{this.value = "";}
         }
-        startGame();
+        checkTostart();
     });
-    function startGame(){
+    function checkTostart(){
         let counter = 0;
         for(box of $(".inputBox")){
             console.log(box.value);
@@ -25,8 +26,9 @@ $(document).ready(() => {
             }
         }
         console.log(counter);
-        if(counter == 25){
+        if(counter == 25 && gameStatus == false){
             var gameStatus = true;
+            randomButton.classList.toggle("op-0");
         }
     }
 });

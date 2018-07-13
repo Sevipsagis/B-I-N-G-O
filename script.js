@@ -17,6 +17,20 @@ $(document).ready(() => {
         }
         checkTostart();
     });
+    $("#generateButton").on("click", function(){
+        for(box of $(".inputBox")){
+            while(box.value == ""){
+                let randNum = Math.floor(Math.random()*98)+1;
+                if(numberArray[randNum-1] != null){
+                    box.value = randNum;
+                    numberArray[randNum-1] = null;
+                }
+                else{this.value = "";}
+            }
+        }
+        checkTostart();
+    });
+
     function checkTostart(){
         let counter = 0;
         for(box of $(".inputBox")){
@@ -27,7 +41,7 @@ $(document).ready(() => {
         }
         console.log(counter);
         if(counter == 25 && gameStatus == false){
-            var gameStatus = true;
+            gameStatus = true;
             randomButton.classList.toggle("op-0");
         }
     }

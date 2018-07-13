@@ -64,3 +64,8 @@ td>input{
     background-color: #393e46;
     color: #4ecca3;
 }
+
+td>input.selected{
+    background-color: #4ecca3;
+    color: #eeeeee;
+}

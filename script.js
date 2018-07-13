@@ -1,6 +1,8 @@
 var numberArray = [];
+var gameArray = [];
+var gameTurn = 20;
 var gameStatus = false;
-for(let i=1; i<100; i++){numberArray.push(i);}
+for(let i=1; i<100; i++){numberArray.push(i); gameArray.push(i);}
 function restartGame(){
     location.reload();
 }
@@ -28,7 +30,8 @@ $(document).ready(() => {
                 else{this.value = "";}
             }
         }
-        $("#generateButton").attr("disabled", true);
+        // $("#generateButton").attr("disabled", true);
+        generateButton.remove();
         checkTostart();
     });
 
@@ -46,4 +49,6 @@ $(document).ready(() => {
             randomButton.classList.toggle("op-0");
         }
     }
+
+
 });

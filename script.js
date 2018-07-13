@@ -1,6 +1,6 @@
 var numberArray = [];
 var gameArray = [];
-var gameTurn = 50;
+var gameTurn = 40;
 var gameStatus = false;
 for (let i = 1; i < 100; i++) { numberArray.push(i); gameArray.push(i); }
 function restartGame() {
@@ -50,6 +50,7 @@ $(document).ready(() => {
 
     $("#randomButton").on("click", () => {
         if (gameTurn > 0 && gameStatus) {
+            gameTurn--;
             while (true) {
                 var randomNumber = Math.floor(Math.random() * 98) + 1;
                 if (gameArray[randomNumber - 1] != null) {
@@ -57,20 +58,17 @@ $(document).ready(() => {
                     break;
                 }
             }
-            console.log(randomNumber, gameTurn);
+            gameTitle.innerHTML = `The Number is ${randomNumber}`;
             for (box of $(".inputBox")) {
                 if (box.value == randomNumber) {
                     $(`#${box.id}`).attr("checked", true);
                 }
             }
         }
-        else {
-            gameStatus = false;
-        }
-        gameTurn--;
         setTimeout(() => {
-            checkWinCondition();
+            gameStatus = checkWinCondition();
         }, 500);
+        if(!gameStatus){$("#randomButton").attr("disabled", true);}
     })
 
     function checkWinCondition() {
@@ -89,8 +87,16 @@ $(document).ready(() => {
             B1.checked && O1.checked && B5.checked && O5.checked ||
             I2.checked && N2.checked && G2.checked && I3.checked && G3.checked && I4.checked && N4.checked && G4.checked
         ) {
-    alert("congrat");
-}
+            gameTitle.innerHTML = `B I N G O !!!`;
+            return false;
+        }
+        else if(gameTurn == 0){
+            gameTitle.innerHTML = `- U N L U C K Y -`;
+            return false;
+        }
+        else{
+            return true;
+        }
     }
 
 });
